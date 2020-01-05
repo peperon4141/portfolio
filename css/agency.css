@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)
  */
 
+html {
+  background: #212529;
+}
+
 body {
   overflow-x: hidden;
   font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -203,8 +207,8 @@ header.masthead .intro-text .intro-heading {
 
 @media (min-width: 768px) {
   header.masthead .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
   header.masthead .intro-text .intro-lead-in {
     font-size: 40px;
@@ -413,7 +417,7 @@ header.masthead .intro-text .intro-heading {
   position: relative;
   float: right;
   width: 100%;
-  padding: 0 20px 0 100px;
+  padding: 0 20px 0 72px;
   text-align: left;
 }
 
@@ -453,7 +457,7 @@ header.masthead .intro-text .intro-heading {
 
 .timeline > li.timeline-inverted > .timeline-panel {
   float: right;
-  padding: 0 20px 0 100px;
+  padding: 0 20px 0 72px;
   text-align: left;
 }
 
@@ -548,7 +552,7 @@ header.masthead .intro-text .intro-heading {
     min-height: 170px;
   }
   .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
+    padding: 0 20px 20px 72px;
   }
   .timeline > li .timeline-image {
     width: 170px;
