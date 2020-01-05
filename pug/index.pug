@@ -1,0 +1,96 @@
+doctype html
+html(lang='jp')
+  include includes/_head.pug
+
+  body#page-top
+    // Navigation
+    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
+      .container
+        a.navbar-brand.js-scroll-trigger(href='#page-top') Engineer Tohru Website
+        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          | Menu
+          i.fas.fa-bars
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.text-uppercase.ml-auto
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#services') Services
+            //
+              <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#works">Works</a>
+              </li>
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#history') History
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#skills') Skills
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#contact') Contact
+    // Header
+    include includes/_hero.pug
+    
+    // Services
+    include includes/_services.pug
+    
+    // Works
+    include includes/_works.pug
+
+    // History
+    include includes/_history.pug
+    
+    // Skills
+    include includes/_skills.pug
+    
+    // Clients
+    //- section.py-5
+    //-   .container
+    //-     .row
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-fluid.d-block.mx-auto(src='img/logos/envato.jpg', alt='')
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-fluid.d-block.mx-auto(src='img/logos/designmodo.jpg', alt='')
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-fluid.d-block.mx-auto(src='img/logos/themeforest.jpg', alt='')
+    //-       .col-md-3.col-sm-6
+    //-         a(href='#')
+    //-           img.img-fluid.d-block.mx-auto(src='img/logos/creative-market.jpg', alt='')
+    // Contact
+    include includes/_contact.pug
+    
+    // Footer
+    footer.footer
+      .container
+        .row.align-items-center
+          .col-md-4
+            span.copyright Copyright © Your Website 2019
+          .col-md-4
+            ul.list-inline.social-buttons
+              li.list-inline-item
+                a(href='#')
+                  i.fab.fa-twitter
+              li.list-inline-item
+                a(href='#')
+                  i.fab.fa-facebook-f
+              li.list-inline-item
+                a(href='#')
+                  i.fab.fa-linkedin-in
+          .col-md-4
+            ul.list-inline.quicklinks
+              li.list-inline-item
+                a(href='#') Privacy Policy
+              li.list-inline-item
+                a(href='#') Terms of Use
+    // Portfolio Modals
+    include includes/_modals.pug
+    
+    // Bootstrap core JavaScript
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+    // Plugin JavaScript
+    script(src='vendor/jquery-easing/jquery.easing.min.js')
+    // Contact form JavaScript
+    script(src='js/jqBootstrapValidation.js')
+    script(src='js/contact_me.js')
+    // Custom scripts for this template
+    script(src='js/agency.min.js')

@@ -1,17 +1,18 @@
 "use strict";
 
 // Load plugins
-const autoprefixer = require("gulp-autoprefixer");
+const autoprefixer = require('gulp-autoprefixer');
 const browsersync = require("browser-sync").create();
-const cleanCSS = require("gulp-clean-css");
-const del = require("del");
-const gulp = require("gulp");
-const header = require("gulp-header");
-const merge = require("merge-stream");
-const plumber = require("gulp-plumber");
-const rename = require("gulp-rename");
-const sass = require("gulp-sass");
-const uglify = require("gulp-uglify");
+const cleanCSS = require('gulp-clean-css');
+const del = require('del');
+const gulp = require('gulp');
+const header = require('gulp-header');
+const merge = require('merge-stream');
+const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const pug = require('gulp-pug');
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -115,21 +116,34 @@ function js() {
     .pipe(browsersync.stream());
 }
 
+function html() {
+  return gulp
+    .src([
+      './pug/*.pug',
+      '!./pug/**/_*.pug'
+    ])
+    .pipe(plumber())
+    .pipe(pug({ pretty: true }))
+    .pipe(gulp.dest('./'))
+    .pipe(browsersync.stream());
+}
+
 // Watch files
 function watchFiles() {
   gulp.watch("./scss/**/*", css);
   gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js);
-  gulp.watch("./**/*.html", browserSyncReload);
+  gulp.watch("./**/*.pug", gulp.series(html, browserSyncReload));
 }
 
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor, gulp.parallel(css, js));
+const build = gulp.series(vendor, gulp.parallel(css, js, html));
 const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 // Export tasks
 exports.css = css;
 exports.js = js;
+exports.html = html;
 exports.clean = clean;
 exports.vendor = vendor;
 exports.build = build;
